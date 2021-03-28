@@ -1,11 +1,11 @@
 const fs = require('fs')
-const {path, rootDir} = require('./path')
+const {getPath} = require('./path')
 
 const readDB = () => {
   let db = []
   let json = ''
   try {
-    json = fs.readFileSync(path.join(rootDir, 'db', 'db.json'), 'utf-8')
+    json = fs.readFileSync(getPath('db', 'db.json'), 'utf-8')
   } catch (err) { 
     console.log('Error: /db/db.json was not found')
   }
@@ -20,7 +20,7 @@ const addUserToDB = (user) => {
   if (user.username) {
     db.push(user)
   }
-  fs.writeFileSync(path.join(rootDir, 'db', 'db.json'), JSON.stringify(db, null, 2), 'utf-8')
+  fs.writeFileSync(getPath('db', 'db.json'), JSON.stringify(db, null, 2), 'utf-8')
 }
 
 const getUsers = () => {

@@ -1,15 +1,17 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const {path, rootDir} = require('./utils/path')
+const {getPath} = require('./utils/path')
 const getPage = require('./utils/getPage')
 
 const homeRoutes = require('./routes/home')
 const usersRoutes = require('./routes/users')
 const adminRouters = require('./routes/admin')
 
+console.log(getPath('public', 'css', 'styles.css'))
+
 const app = express()
 
-app.use(express.static(path.join(rootDir, 'public')))
+app.use(express.static(getPath('public')))
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.use('/admin', adminRouters)

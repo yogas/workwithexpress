@@ -1,5 +1,5 @@
 const fs = require('fs')
-const {path, rootDir} = require('./path')
+const {getPath} = require('./path')
 
 const getNav = (selected) => {
   const nav = [
@@ -15,8 +15,8 @@ const getNav = (selected) => {
 }
 
 const getPage = (page, params={}) => {
-  const tpl = fs.readFileSync(path.join(rootDir, 'views', 'tpl', 'template.html'), 'utf-8')
-  const content = fs.readFileSync(path.join(rootDir, 'views', `${page}.html`), 'utf-8')
+  const tpl = fs.readFileSync(getPath('views', 'tpl', 'template.html'), 'utf-8')
+  const content = fs.readFileSync(getPath('views', `${page}.html`), 'utf-8')
 
   let html = tpl.replace(/\$\{content\}/g, content)
 
