@@ -1,8 +1,9 @@
 const express = require('express')
 
+// Step #3
 const app = express()
 
-// Stem #2
+// Step #3
 const step2 = () => {
   app.use((req, res, next) => {
     console.log('This is first middleware')
