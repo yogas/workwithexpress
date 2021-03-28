@@ -1,6 +1,6 @@
 const express = require('express')
 
-// Step #3
+// Step #1
 const app = express()
 
 // Step #3
