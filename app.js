@@ -13,8 +13,8 @@ app.use(express.static(path.join(rootDir, 'public')))
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.use('/users', usersRoutes)
-app.use(homeRoutes)
 app.use('/admin', adminRouters)
+app.use(homeRoutes)
 
 app.use('/', (req, res, next) => {
   res.status(404).send(getPage('404', {title: 'Error 404'}))
