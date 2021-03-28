@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const {getPath} = require('./utils/path')
 const getPage = require('./utils/getPage')
+const PORT = 3002
 
 const homeRoutes = require('./routes/home')
 const usersRoutes = require('./routes/users')
@@ -22,4 +23,6 @@ app.use('/', (req, res, next) => {
   res.status(404).send(getPage('404', {title: 'Error 404'}))
 })
 
-app.listen(3002)
+app.listen(PORT, () => {
+  console.log(`Server started on http://localhost:${PORT}`)  
+})
