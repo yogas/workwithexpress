@@ -12,8 +12,8 @@ const app = express()
 app.use(express.static(path.join(rootDir, 'public')))
 app.use(bodyParser.urlencoded({extended: false}))
 
-app.use('/users', usersRoutes)
 app.use('/admin', adminRouters)
+app.use('/users', usersRoutes)
 app.use(homeRoutes)
 
 app.use('/', (req, res, next) => {
