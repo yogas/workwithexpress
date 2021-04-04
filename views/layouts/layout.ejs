@@ -4,19 +4,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${title}</title>
+  <title><%= title %></title>
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
   <header class="main-header">
     <nav class="main-header__nav">
       <img src="/img/logo.svg" title="logo" alt="Node.js" height="70">
-      ${nav}
+      <% for (let item of topMenu) { %>
+        <% if (!item.disabled) { %> 
+        <a class="main-header__item<%=item.href===pagePath?' main-header__item_active':''%>" href="<%=item.href %>"><%=item.title %></a>
+        <% } %>
+      <% } %>
     </nav>
   </header>
   <main>
-    <h1>${title}</h1>
-    ${content}
+    <h1><%= title %></h1>
+    <%- include(`../${tpl}.ejs`) %>
   </main>
 </body>
 </html>

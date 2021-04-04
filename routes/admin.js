@@ -1,11 +1,10 @@
 const express = require('express')
-const getPage = require('../utils/getPage') 
 const {addUserToDB} = require('../utils/user')
 const router = express.Router()
 
 router.get('/add-user', (req, res, next) => {
   const error = req.query.error ? '<div class="error">Username is empty</div>' : ''
-  res.send(getPage('add-user', {title: 'Add user page', error}))
+  res.renderEjs('add-user', {title: 'Add user page', error})
 })
 
 router.post('/add-user', (req, res, next) => {

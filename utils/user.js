@@ -24,12 +24,7 @@ const addUserToDB = (user) => {
 }
 
 const getUsers = () => {
-  const db = readDB()
-  const users = []
-  db.forEach( ({username, first_name}) => {
-    users.push(`<li>${username}</li>`)
-  })
-  return users.join('\n')
+  return readDB()
 }
 
 module.exports = {
