@@ -17,6 +17,8 @@ Express.js Official Docs: https://expressjs.com/en/starter/installing.html
 
 `<p><%= name %></p>`
 
+https://ejs.co/
+
 Use normal HTML and plain JavaScript in your templates
 
 Setup ejs in application: 
